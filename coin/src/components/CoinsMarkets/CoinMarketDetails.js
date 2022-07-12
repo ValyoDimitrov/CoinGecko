@@ -11,12 +11,13 @@ const CoinMarketDetails = ({ coin, index }) => {
     >
       <td>{index + 1}</td>
       <td>
-        <img alt="coin" width={60} height={60} src={`${coin.image}`} />
+        <img alt="coin" width={50} height={50} src={`${coin.image}`} />
       </td>
       <td>{coin.name}</td>
       <td>{coin.symbol}</td>
-      <td>{coin.high_24h}</td>
-      <td>{coin.low_24h}</td>
+      <td>{coin.current_price} €</td>
+      <td>{coin.high_24h} €</td>
+      <td>{coin.low_24h} €</td>
     </tr>
   );
 };
