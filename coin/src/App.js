@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import AllCoinsMarkets from "./components/CoinsMarkets/AllCoinsMarkets.js";
+import CoinsMarket from "./components/CoinsMarkets/CoinsMarket.js";
 import SingleCoin from "./components/CoinsMarkets/SingleCoin.js";
 
 const App = () => {
@@ -7,7 +7,7 @@ const App = () => {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<AllCoinsMarkets />} />
+          <Route exact path="/" element={<CoinsMarket />} />
           <Route exact path="/coins/:id" element={<SingleCoin />} />
         </Routes>
       </BrowserRouter>

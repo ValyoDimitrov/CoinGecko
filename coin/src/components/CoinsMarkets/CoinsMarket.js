@@ -1,9 +1,17 @@
 import { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
-import CoinDetails from "./CoinDetails";
+import CoinMarketDetails from "./CoinMarketDetails";
+import "bootstrap/dist/css/bootstrap.min.css";
+import Pagination from 'react-bootstrap/Pagination';
 
-const AllCoinsMarkets = (props) => {
+const CoinsMarket = (props) => {
   const [coinsMarketInfo, setCoinsMarketInfo] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1)
+  const [coinsPerPage, setCoinsPerPage] = useState(10)
+
+  const indexOfLastPost = currentPage*coinsPerPage;
+  const indexOfFirstPost = indexOfLastPost - coinsPerPage;
+
 
   useEffect(() => {
     fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur")
@@ -16,7 +24,7 @@ const AllCoinsMarkets = (props) => {
   const mapCoinsInfo =
     coinsMarketInfo &&
     coinsMarketInfo.map((details, i) => {
-      return <CoinDetails key={details.id} coin={details} index={i} />;
+      return <CoinMarketDetails key={details.id} coin={details} index={i} />;
     });
 
   return (
@@ -36,4 +44,4 @@ const AllCoinsMarkets = (props) => {
   );
 };
 
-export default AllCoinsMarkets;
+export default CoinsMarket;

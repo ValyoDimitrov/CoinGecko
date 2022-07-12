@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const CoinDetails = ({ coin, index }) => {
+const CoinMarketDetails = ({ coin, index }) => {
   const navigate = useNavigate();
 
   return (
@@ -21,4 +21,4 @@ const CoinDetails = ({ coin, index }) => {
   );
 };
 
-export default CoinDetails;
+export default CoinMarketDetails;
