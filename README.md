@@ -1,4 +1,4 @@
 # CoinGecko
 
-1. Npm Install
+1. Npm install
 2. Npm start
