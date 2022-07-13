@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import SingleCoinDetails from "./SingleCoinDetails";
 import Spinner from "react-bootstrap/Spinner";
 import "./CoinsMarket.css";
+import Container from "react-bootstrap/Container";
+import CardGroup from "react-bootstrap/CardGroup";
 
 const SingleCoin = () => {
   const params = useParams();
@@ -37,9 +39,11 @@ const SingleCoin = () => {
   }
 
   return (
-    <>
-      <SingleCoinDetails coinInfo={coinInfo} />
-    </>
+    <Container fluid className="text-center">
+      <CardGroup className="m-5 d-block">
+        <SingleCoinDetails coinInfo={coinInfo} />
+      </CardGroup>
+    </Container>
   );
 };
 

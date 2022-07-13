@@ -1,21 +1,19 @@
 import Card from "react-bootstrap/Card";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 const SingleCoinsDetails = ({ coinInfo }) => {
   return (
-    <>
-      <Card border="dark" style={{ width: "25rem", margin: "auto" }}>
-        {coinInfo.image && (
-          <Card.Img sizes="sx" src={`${coinInfo.image.small}`} />
-        )}
-        <Card.Body>
-          <Card.Title>
-            {coinInfo.name} ({coinInfo.symbol})
-          </Card.Title>
-          {coinInfo.description ? (
-            <Card.Text>{coinInfo.description.en}</Card.Text>
-          ) : (
-            ""
+    <Card
+      className="m-5 border-0 shadow"
+      style={{ backgroundColor: "#373b3e" }}
+      text="light"
+    >
+      <Row>
+        <Col>
+          {coinInfo.image && (
+            <Card.Img className="image" src={`${coinInfo.image.small}`} />
           )}
           {coinInfo.hashing_algorithm && (
             <Card.Text>
@@ -30,9 +28,21 @@ const SingleCoinsDetails = ({ coinInfo }) => {
               Market cap: {coinInfo.market_data.market_cap.eur}
             </Card.Text>
           )}
-        </Card.Body>
-      </Card>
-    </>
+        </Col>
+        <Col>
+          <Card.Body>
+            <Card.Title>
+              {coinInfo.name} ({coinInfo.symbol})
+            </Card.Title>
+            {coinInfo.description ? (
+              <Card.Text>{coinInfo.description.en}</Card.Text>
+            ) : (
+              ""
+            )}
+          </Card.Body>
+        </Col>
+      </Row>
+    </Card>
   );
 };
 
