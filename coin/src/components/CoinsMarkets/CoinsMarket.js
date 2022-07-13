@@ -4,6 +4,7 @@ import CoinMarketDetails from "./CoinMarketDetails";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Spinner from "react-bootstrap/Spinner";
 import "./CoinsMarket.css";
+import Pagination from 'react-bootstrap/Pagination';
 
 const CoinsMarket = (props) => {
   const [coinsMarketInfo, setCoinsMarketInfo] = useState([]);
@@ -12,7 +13,7 @@ const CoinsMarket = (props) => {
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur")
+    fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&market_cap_desc&per_page=10")
       .then((res) => res.json())
       .then((data) => setCoinsMarketInfo(data))
       .catch((err) => setError(err))
