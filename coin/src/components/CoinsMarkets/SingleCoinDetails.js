@@ -28,7 +28,12 @@ const SingleCoinsDetails = ({ coinInfo }) => {
           )}
           {coinInfo.market_data && (
             <Card.Text>
-              Market cap: {coinInfo.market_data.market_cap.eur}
+              Market cap: {coinInfo.market_data.market_cap.eur} €
+            </Card.Text>
+          )}
+          {coinInfo.links && (
+            <Card.Text>
+              Homepage: {coinInfo.links.homepage[0]}
             </Card.Text>
           )}
         </Col>
