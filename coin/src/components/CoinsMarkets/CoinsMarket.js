@@ -4,7 +4,6 @@ import CoinMarketDetails from "./CoinMarketDetails";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Spinner from "react-bootstrap/Spinner";
 import "./CoinsMarket.css";
-import Pagination from 'react-bootstrap/Pagination';
 
 const CoinsMarket = (props) => {
   const [coinsMarketInfo, setCoinsMarketInfo] = useState([]);

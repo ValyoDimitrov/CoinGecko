@@ -4,6 +4,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 const SingleCoinsDetails = ({ coinInfo }) => {
+  const regex = (/<[^>]*>?/gm)
+  const transformedText = coinInfo.description ? coinInfo.description.en.replace(regex, '') : '';
+
   return (
     <Card
       className="m-5 border-0 shadow"
@@ -13,7 +16,7 @@ const SingleCoinsDetails = ({ coinInfo }) => {
       <Row>
         <Col>
           {coinInfo.image && (
-            <Card.Img className="image" src={`${coinInfo.image.small}`} />
+            <Card.Img className="image" src={`${coinInfo.image.large}`} />
           )}
           {coinInfo.hashing_algorithm && (
             <Card.Text>
@@ -34,10 +37,8 @@ const SingleCoinsDetails = ({ coinInfo }) => {
             <Card.Title>
               {coinInfo.name} ({coinInfo.symbol})
             </Card.Title>
-            {coinInfo.description ? (
-              <Card.Text>{coinInfo.description.en}</Card.Text>
-            ) : (
-              ""
+            {coinInfo.description && (
+              <Card.Text>{transformedText}</Card.Text>
             )}
           </Card.Body>
         </Col>
